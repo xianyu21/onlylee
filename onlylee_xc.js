@@ -1,11 +1,9 @@
 /*
-来源 : github@AutMan7 https://github.com/AutMan7/AM.git
-日期: 2023/1/25 20:30
-
 小程序:喜茶GO
 域名：vip.heytea.com
 请求头：Authorization:XXXXXXX
 export xchd='XXXXXXX'
+cron: 32 7 * * *
 */
 const $ = new Env('喜茶');
 const axios = require('axios');

@@ -1,16 +1,15 @@
 /**
  * 永辉生辉APP 
  * 
- * 永辉生辉APP    这里是写脚本说明的地方
+ * 永辉生辉APP
  * 本脚本仅用于学习使用请勿直接运行
  * 
  * ========= 青龙 =========
  * 变量格式：export yhck=' platform=xx;shopid=xx;access_token=xxxx @  xxxx & xxx '  多个账号用 @分割 
  * 注意最后一个参数 不用加 ;
- * 
+ * cron: 32 7 * * *
  */
 
-// const $ = Env("永辉生辉APP");
 const $ = new Env('永辉生辉APP');
 const notify = $.isNode() ? require('./sendNotify') : ''; // 这里是 node（青龙属于node环境）通知相关的
 const Notify = 1; //0为关闭通知，1为打开通知,默认为1
