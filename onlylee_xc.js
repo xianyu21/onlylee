@@ -37,10 +37,6 @@ var timestamp = Math.round(new Date().getTime()).toString();
             log(`\n\n=============================================    \n脚本执行 - 北京时间(UTC+8)：${new Date(
                 new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 +
                 8 * 60 * 60 * 1000).toLocaleString()} \n=============================================\n`);
-
-
-
-            log(`\n============ 微信公众号：AutMan福利社 ============`)
             log(`\n=================== 共找到 ${xchdArr.length} 个账号 ===================`)
             if (debug) {
                 log(`【debug】 这是你的全部账号数组:\n ${xchdArr}`);
