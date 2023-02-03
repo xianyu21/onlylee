@@ -19,7 +19,7 @@ let yhck = process.env.yhck; // 这里是 从青龙的 配置文件 读取你写
 let yhck_dataArr = [];
 let data = '';
 let msg = '';
-!(async () => {
+!(async () => { 
   if (!(await Envs())) //多账号分割 判断变量是否为空  初步处理多账号
     return;
   else {
