@@ -22,7 +22,7 @@ const debug = 0; //0为关闭调试，1为打开调试,默认为0
 let xchd = ($.isNode() ? process.env.xchd : $.getdata("xchd")) || ""
 let xchdArr = [];
 let data = '';
-let msg = '';
+let msg = ''; 
 var hours = new Date().getMonth();
 
 var timestamp = Math.round(new Date().getTime()).toString();
