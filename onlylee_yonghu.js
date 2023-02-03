@@ -9,8 +9,9 @@
  * 注意最后一个参数 不用加 ;
  * 
  */
-const jsname = "永辉生辉APP";
-const $ = Env(jsname);
+
+// const $ = Env("永辉生辉APP");
+const $ = new Env('永辉生辉APP');
 const notify = $.isNode() ? require('./sendNotify') : ''; // 这里是 node（青龙属于node环境）通知相关的
 const Notify = 1; //0为关闭通知，1为打开通知,默认为1
 const debug = 1; //0为关闭调试，1为打开调试,默认为0
