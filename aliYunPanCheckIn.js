@@ -1,30 +1,41 @@
 /*
 阿里云盘签到-lowking-v1.0.0
+
 按下面配置完之后，打开阿里云盘获取token（如获取不到，等一段时间再打开），下面配置只验证过surge的，其他的自行测试
 ⚠️只测试过surge没有其他app自行测试
+
 hostname = auth.aliyundrive.com
+
 ************************
 Surge 4.2.0+ 脚本配置:
 ************************
+
 [Script]
 # > 阿里云盘签到
 https://auth.aliyundrive.com/v2/account/token
 阿里云盘签到cookie = requires-body=1,type=http-response,pattern=https:\/\/auth.aliyundrive.com\/v2\/account\/token,script-path=https://raw.githubusercontent.com/lowking/Scripts/master/ali/aliYunPanCheckIn.js
 阿里云盘签到 = type=cron,cronexp="0 10 0 * * ?",wake-system=1,script-path=https://raw.githubusercontent.com/lowking/Scripts/master/ali/aliYunPanCheckIn.js
+
+
 ************************
-QuantumultX 本地脚本配置:
+QuantumultX 脚本配置:
 ************************
+
 [rewrite_local]
 #阿里云盘签到cookie
 ^https:\/\/auth.aliyundrive.com\/v2\/account\/token url script-response-body https://raw.githubusercontent.com/lowking/Scripts/master/ali/aliYunPanCheckIn.js
+
 [task_local]
 0 10 0 * * ? https://raw.githubusercontent.com/lowking/Scripts/master/ali/aliYunPanCheckIn.js
+
 ************************
-LOON 本地脚本配置:
+LOON 脚本配置:
 ************************
+
 [Script]
-http-request https:\/\/auth.aliyundrive.com\/v2\/account\/token script-path=https://raw.githubusercontent.com/lowking/Scripts/master/ali/aliYunPanCheckIn.js, timeout=10, tag=阿里云盘签到cookie
+http-response https:\/\/auth.aliyundrive.com\/v2\/account\/token script-path=https://raw.githubusercontent.com/lowking/Scripts/master/ali/aliYunPanCheckIn.js, timeout=10, tag=阿里云盘签到cookie
 cron "0 10 0 * * ?" script-path=https://raw.githubusercontent.com/lowking/Scripts/master/ali/aliYunPanCheckIn.js, tag=阿里云盘签到
+
 */
 
 const lk = new ToolKit(`阿里云盘签到`, `AliYunPanCheckIn`, {"httpApi": "ffff@10.0.0.19:6166"})
