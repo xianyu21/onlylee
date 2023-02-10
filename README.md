@@ -8,3 +8,6 @@
 永辉生活APP 签到
 ### onlylee_xc.js 
 喜茶小程序 签到
+### 访问量
+
+![](http://profile-counter.glitch.me/xianyu21/count.svg)
