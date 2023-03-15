@@ -21,25 +21,6 @@
  //   console.log('非node环境');
  // }
  
- //此处填写京东账号cookie。
- // let Authorization = []
- 
- // 判断环境变量里面是否有云闪付Authorization
- // if (process.env.ysfAuthorization) {
- //   if (process.env.ysfAuthorization.indexOf('&') > -1) {
- //     Authorization = process.env.ysfAuthorization.split('&');
- //   } else if (process.env.ysfAuthorization.indexOf('\n') > -1) {
- //     Authorization = process.env.ysfAuthorization.split('\n');
- //   } else {
- //     Authorization = [process.env.ysfAuthorization];
- //   }
- // }
- 
- // console.log('Authorization', Authorization);
- 
- // 去重
- // Authorization = [...new Set(Authorization.filter(item => !!item))]
- 
  // console.log(`\n====================共${Authorization.length}个云闪付账号=========\n`);
  let ysfAuthorization = ($.isNode() ? process.env.ysfAuthorization : $.getdata("ysfAuthorization")) || ""
  let ysfAuthorizationArr = [];
