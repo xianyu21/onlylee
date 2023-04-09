@@ -1,7 +1,7 @@
 /**
- * 龙湖天街小程序 
+ * 永辉生辉APP 
  * 
- * 龙湖天街小程序
+ * 永辉生辉APP
  * 本脚本仅用于学习使用请勿直接运行
  * 
  * ========= 青龙 =========
@@ -10,8 +10,9 @@
  * cron: 32 7 * * *
  */
 
+const { json } = require('stream/consumers');
 
-const $ = new Env('龙湖天街小程序');
+const $ = new Env('永辉生辉APP');
 const notify = $.isNode() ? require('./sendNotify') : ''; // 这里是 node（青龙属于node环境）通知相关的
 const Notify = 1; //0为关闭通知，1为打开通知,默认为1
 const debug = 1; //0为关闭调试，1为打开调试,默认为0
@@ -32,7 +33,6 @@ let msg = '';
             console.log('开始 签到');
             await signin();
             await $.wait(2 * 1000);
-            console.log('msg',msg);
             await SendMsg(msg); // 与发送通知有关系
         }
     }
@@ -69,24 +69,23 @@ function signin(timeout = 3 * 1000) {
         };
         //  
         $.post(config, async (error, response, data) => {
+            console.log('触发11')
             try {
+                console.log(data)
                 let result = JSON.parse(data);
                 if (result.code == 0) {
                     "@"
                     console.log(`【签到】${result.message} 🎉 `)
                     msg += `\n【签到】${result.data.signrewardvo.tips} 🎉`
-                } else if (result.code == 1) {
+                } else if (result.code === 1) {
                     "@"
                     console.log(`\n【签到】 失败 ,:${result.message}!\n `)
-                } else if (result.code == 40001) {
+                } else if (result.code === 40001) {
                     "@"
                     console.log(`\n【签到】 失败 ,:${result.message}!\n `)
-                } else if (result.code == 801002) {
+                } else if (result.code === 40002) {
                     "@"
                     console.log(`\n【已签到】:${result.message}!\n `)
-                } else if (result.code == 801811) {
-                    "@"
-                    console.log(`\n【已签到 or 签到失败 】:${result.message}!\n `)
                 } else {
                     "@"
                     console.log(`\n【签到】 失败 ❌ 了呢,网络被外星人抓走了!\n `)
